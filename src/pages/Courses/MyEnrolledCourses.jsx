@@ -1,11 +1,10 @@
-// src/pages/MyEnrolledCourses.jsx
-
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { FiBook, FiUser, FiTrash2, FiArrowLeft, FiClock, FiStar, FiZap } from 'react-icons/fi';
-import { motion } from 'framer-motion'; // <<< framer-motion ইমপোর্ট করা হয়েছে >>>
+import { motion } from 'framer-motion';
+import CourseCard from '../../components/shared/CourseCard'; // Import CourseCard
 
 // --- Skeleton Loader Component (কোনো পরিবর্তন নেই) ---
 const CourseCardSkeleton = () => (
@@ -162,46 +161,16 @@ const MyEnrolledCourses = () => {
                             <motion.div 
                                 key={course.enrollmentId} 
                                 variants={itemVariants}
-                                className="bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 transition-all duration-300 hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-900/50"
+                                className="relative group bg-gray-800 border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 transform hover:-translate-y-1"
                             >
-                                <div className="relative h-52 overflow-hidden group">
-                                    <img
-                                        src={course.image || 'https://via.placeholder.com/400x225?text=Course+Image'}
-                                        alt={course.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                                    <div className="absolute top-2 right-2 flex items-center gap-2">
-                                        <div className="flex items-center gap-1 text-xs bg-slate-900/80 text-white py-1 px-2 rounded-full backdrop-blur-sm">
-                                            <FiStar className="text-yellow-400" />
-                                            <span className="font-bold">{course.rating || '4.5'}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div className="p-5 flex flex-col flex-grow">
-                                    <div className="flex gap-2 mb-3">
-                                        <span className="bg-indigo-500/10 text-indigo-300 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5">
-                                           <FiZap size={12}/> {course.level || 'All Levels'}
-                                        </span>
-                                        <span className="bg-cyan-500/10 text-cyan-300 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5">
-                                            <FiClock size={12}/> {course.duration || '6-8h'}
-                                        </span>
-                                    </div>
-                                    <h3 className="text-lg font-bold text-slate-50 flex-grow mb-2">{course.title}</h3>
-                                    <p className="text-sm text-slate-400 flex items-center mb-4">
-                                        <FiUser className="mr-1.5" /> By {course.author?.name || 'Unknown'}
-                                    </p>
-                                    
-                                    <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-700">
-                                        <span className="text-2xl text-indigo-400 font-extrabold">
-                                            ${course.discount_price ?? course.price ?? '0'}
-                                        </span>
-                                        <button
-                                            onClick={() => handleRemoveEnrollment(course._id, course.title)}
-                                            className="bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white font-semibold transition-all text-xs px-3 py-2 rounded-lg flex items-center gap-1.5"
+                                <CourseCard course={course} />
+                                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div className="flex space-x-4">
+                                        <button 
+                                            onClick={(e) => { e.preventDefault(); handleRemoveEnrollment(course._id, course.title); }}
+                                            className="btn btn-error btn-circle text-white hover:bg-red-700 tooltip" data-tip="Remove Enrollment"
                                         >
-                                            <FiTrash2 size={14} /> Remove
+                                            <FiTrash2 size={24} />
                                         </button>
                                     </div>
                                 </div>

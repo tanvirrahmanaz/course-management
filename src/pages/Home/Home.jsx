@@ -6,6 +6,9 @@ import LatestCourses from './LatestCourses';
 import PopularCourses from './PopularCourses';
 import TopInstructors from './TopInstructors';
 import Testimonials from './Testimonials';
+import Categories from './Categories';
+import Newsletter from './Newsletter';
+
 
 const Home = () => {
     useEffect(() => {
@@ -28,10 +31,13 @@ const Home = () => {
       {/* 3. Popular Courses Section */}
       <PopularCourses />
 
-      {/* 4. Extra Section 1: Top Instructors */}
+      {/* 4. Categories Section */}
+      <Categories />
+
+      {/* 5. Extra Section 1: Top Instructors */}
       <TopInstructors />
       
-      {/* 5. Extra Section 2: Testimonials */}
+      {/* 6. Extra Section 2: Testimonials */}
       <Testimonials />
 
     </div>

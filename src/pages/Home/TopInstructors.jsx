@@ -103,9 +103,9 @@ const TopInstructors = () => {
                                 <p className="text-sm text-indigo-400 font-semibold mt-1">{instructor.expertise}</p>
                                 <div className="mt-4 flex justify-center space-x-4">
                                     {instructor.socials.map((social, index) => (
-                                        <a key={index} href={social.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-indigo-400 transition-colors duration-300">
+                                        <span key={index} className="text-gray-400">
                                             <social.icon className="w-6 h-6" />
-                                        </a>
+                                        </span>
                                     ))}
                                 </div>
                             </div>

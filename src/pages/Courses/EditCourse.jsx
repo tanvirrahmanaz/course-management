@@ -165,7 +165,7 @@ const EditCourse = () => {
             <div className="container mx-auto px-4 max-w-4xl">
                 <div className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-700">
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-gray-800 to-gray-700 px-8 py-6 border-b border-gray-600">
+                    <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-8 py-6 border-b border-gray-600">
                         <h1 className="text-3xl font-bold text-white flex items-center">
                             <svg className="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -453,7 +453,7 @@ const EditCourse = () => {
                         {/* Submit Button */}
                         <button 
                             type="submit" 
-                            className="w-full px-6 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg hover:from-pink-600 hover:to-purple-600 transition-all duration-200 font-medium text-lg shadow-lg"
+                            className="w-full px-6 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-medium text-lg shadow-lg"
                         >
                             Update Course
                         </button>

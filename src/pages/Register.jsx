@@ -1,36 +1,3 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, User, Mail, Lock, Image, UserPlus, ArrowRight } from 'lucide-react';
-import useAuth from '../hooks/useAuth';
-
-const Register = () => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
-    const { createUser, updateUserProfile } = useAuth();
-    const navigate = useNavigate();
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-
-    // Watch the password field to use for confirm password validation
-    const password = watch("password", "");
-
-    const onSubmit = async (data) => {
-        setIsLoading(true);
-        try {
-            await createUser(data.email, data.password);
-            await updateUserProfile(data.name, data.photoURL);
-            toast.success("Registration successful!");
-            navigate('/');
-        } catch (error) {
-            toast.error(error.message || "An unexpected error occurred.");
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 flex items-center justify-center p-4">
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

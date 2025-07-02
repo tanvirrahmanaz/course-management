@@ -141,9 +141,9 @@ const CourseDetails = () => {
                         {/* Course Header */}
                         <div className="bg-gray-800 rounded-lg shadow-xl border border-gray-700 p-6">
                             <div className="flex flex-wrap gap-2 mb-4">
-                                <span className="badge badge-primary">{course?.category}</span>
-                                <span className="badge badge-secondary">{course?.level}</span>
-                                <span className="badge badge-accent">{course?.language}</span>
+                                <span className="badge badge-primary bg-indigo-500 text-white">{course?.category}</span>
+                                <span className="badge badge-secondary bg-purple-500 text-white">{course?.level}</span>
+                                <span className="badge badge-accent bg-cyan-500 text-white">{course?.language}</span>
                                 {course?.featured && <span className="badge badge-warning">Featured</span>}
                                 {course?.completion_certificate && <span className="badge badge-success">Certificate</span>}
                             </div>
@@ -328,7 +328,7 @@ const CourseDetails = () => {
                                 </div>
                                 <div className="w-full bg-gray-700 rounded-full h-2">
                                     <div
-                                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+                                        className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-300"
                                         style={{ width: `${(course?.enrollmentCount / course?.seats) * 100}%` }}
                                     ></div>
                                 </div>
@@ -347,14 +347,14 @@ const CourseDetails = () => {
                                 ) : !user ? (
                                     <button
                                         onClick={() => navigate('/login', { state: { from: location }, replace: true })}
-                                        className="btn btn-primary btn-wide w-full"
+                                        className="btn btn-primary btn-wide w-full bg-indigo-600 hover:bg-indigo-700"
                                     >
                                         Login to Enroll
                                     </button>
                                 ) : (
                                     <button
                                         onClick={handleEnrollmentToggle}
-                                        className={`btn btn-wide w-full ${isEnrolled ? 'btn-warning' : (isEnrollmentLimitReached ? 'btn-disabled' : 'btn-primary')}`}
+                                        className={`btn btn-wide w-full ${isEnrolled ? 'btn-warning' : (isEnrollmentLimitReached ? 'btn-disabled' : 'bg-indigo-600 hover:bg-indigo-700 text-white')}`}
                                         disabled={enrollLoading || isEnrollmentLimitReached} // এখানে নতুন কন্ডিশন যোগ করা হয়েছে
                                     >
                                         {enrollLoading ? (

@@ -52,7 +52,7 @@ const LatestCourses = () => {
                 </div>
                 
                 {/* কোর্সের গ্রিড (এখানে কোনো পরিবর্তন নেই কারণ CourseCard নিজেই সুন্দর) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {courses.map(course => (
                         <CourseCard key={course._id} course={course} />
                     ))}

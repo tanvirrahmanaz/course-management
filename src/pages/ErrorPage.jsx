@@ -16,18 +16,18 @@ const ErrorPage = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-base-200 text-center px-6">
-            <div className="max-w-md">
-                <h1 className="text-8xl md:text-9xl font-extrabold text-primary drop-shadow-lg">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-center px-6">
+            <div className="max-w-md bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                <h1 className="text-8xl md:text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 drop-shadow-lg">
                     {status}
                 </h1>
-                <p className="text-2xl md:text-3xl font-bold mt-4 text-gray-800">
+                <p className="text-2xl md:text-3xl font-bold mt-4 text-white">
                     {statusText}
                 </p>
-                <p className="text-lg text-gray-600 mt-3">
+                <p className="text-lg text-gray-400 mt-3">
                     {message}
                 </p>
-                <Link to="/" className="btn btn-primary mt-8">
+                <Link to="/" className="btn btn-primary mt-8 bg-indigo-600 hover:bg-indigo-700 text-white">
                     Go Back to Homepage
                 </Link>
             </div>

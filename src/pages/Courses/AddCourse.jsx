@@ -116,7 +116,7 @@ const AddCourse = () => {
     return (
         <div className="bg-gray-900 text-white min-h-screen p-4 md:p-8">
             <div className="max-w-4xl mx-auto bg-gray-800 p-8 rounded-2xl shadow-2xl shadow-purple-500/20">
-                <h2 className="text-4xl font-bold text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Create a New Course</h2>
+                <h2 className="text-4xl font-bold text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Create a New Course</h2>
                 <p className="text-center text-gray-400 mb-8">Fill in the details below to launch your new course.</p>
                 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -287,7 +287,7 @@ const AddCourse = () => {
                     <div className="mt-10 text-center">
                         <button 
                             type="submit" 
-                            className="btn btn-primary btn-lg w-full md:w-1/2 disabled:bg-gray-500 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" 
+                            className="btn btn-primary btn-lg w-full md:w-1/2 disabled:bg-gray-500 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white" 
                             disabled={isLoading}
                         >
                             {isLoading ? (

@@ -1,15 +1,12 @@
 // src/components/Home/Banner.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
-
 // react-slick এর CSS ফাইল
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-// ব্যানার ইমেজগুলো যৌক্তিকভাবে ইম্পোর্ট করা হয়েছে
+// ব্যানার ইমেজগুলো যৌক্তিকভাবে ইম্পোর্ট করা হয়েছে
 import banner1 from '../../assets/banner/banner1.jpg';
 import banner2 from '../../assets/banner/banner2.jpg';
 import banner3 from '../../assets/banner/banner3.png';
@@ -22,16 +19,18 @@ const Banner = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 800,
-        fade: true,
+        speed: 1000,
+        fade: false, // fade বন্ধ করে slide করা হবে
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 3500, // 3.5 সেকেন্ড পর পর স্ক্রল
         cssEase: 'ease-in-out',
+        pauseOnHover: true, // হোভার করলে থেমে যাবে
+        pauseOnFocus: true,
         appendDots: dots => (
             <div>
-              {/* কাস্টম ডট স্টাইলিংয়ের জন্য একটি className যোগ করা হয়েছে */}
+              {/* কাস্টম ডট স্টাইলিংয়ের জন্য একটি className যোগ করা হয়েছে */}
               <ul className="m-0 slick-dots-custom"> {dots} </ul>
             </div>
         ),
@@ -49,59 +48,114 @@ const Banner = () => {
 
     // Framer Motion এর জন্য অ্যানিমেশন ভ্যারিয়েন্ট
     const textVariants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 30 },
         visible: { 
             opacity: 1, 
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut" }
+            transition: { duration: 0.6, ease: "easeOut" }
         }
     };
 
     return (
         <>
-            {/* এই স্টাইলগুলো index.css বা App.css ফাইলে রাখলে আরও ভালো হয় */}
+            {/* এই স্টাইলগুলো index.css বা App.css ফাইলে রাখলে আরও ভালো হয় */}
             <style>
                 {`
-                    .slick-dots-custom { bottom: 25px; }
-                    .slick-dots-custom li button:before { font-size: 12px; color: white; opacity: 0.5; }
-                    .slick-dots-custom li.slick-active button:before { color: white; opacity: 1; }
+                    .slick-dots-custom { 
+                        bottom: 15px; 
+                        z-index: 10;
+                    }
+                    .slick-dots-custom li button:before { 
+                        font-size: 12px; 
+                        color: white; 
+                        opacity: 0.7; 
+                    }
+                    .slick-dots-custom li.slick-active button:before { 
+                        color: #3b82f6; 
+                        opacity: 1; 
+                        transform: scale(1.2);
+                    }
+                    
+                    /* স্লাইডার এরো স্টাইলিং */
+                    .slick-prev, .slick-next {
+                        z-index: 10;
+                        width: 50px;
+                        height: 50px;
+                    }
+                    .slick-prev:before, .slick-next:before {
+                        font-size: 25px;
+                        color: white;
+                        opacity: 0.8;
+                    }
+                    .slick-prev {
+                        left: 20px;
+                    }
+                    .slick-next {
+                        right: 20px;
+                    }
+                    
+                    @media (max-width: 768px) {
+                        .slick-dots-custom { bottom: 10px; }
+                        .slick-dots-custom li button:before { font-size: 10px; }
+                        .slick-prev, .slick-next {
+                            width: 35px;
+                            height: 35px;
+                        }
+                        .slick-prev:before, .slick-next:before {
+                            font-size: 18px;
+                        }
+                        .slick-prev {
+                            left: 10px;
+                        }
+                        .slick-next {
+                            right: 10px;
+                        }
+                    }
+
+                    /* স্মুথ ট্রানজিশন */
+                    .slick-slide {
+                        transition: all 0.5s ease;
+                    }
                 `}
             </style>
             
             <div className="relative z-0">
                 <Slider {...settings}>
                     {slideData.map((slide, index) => (
-                        <div key={index} className="relative h-[60vh] md:h-[85vh] w-full">
+                        <div key={index} className="relative h-[65vh] w-full overflow-hidden">
                             
                             {/* ব্যাকগ্রাউন্ড ইমেজ এবং কালো ওভারলে */}
                             <div
-                                className="absolute inset-0 bg-cover bg-center"
+                                className="absolute inset-0 bg-no-repeat transform transition-transform duration-700 hover:scale-105"
                                 style={{
-                                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${slide.bg})`
+                                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${slide.bg})`,
+                                    backgroundPosition: ' center', // উপরের অংশ দেখাবে
+                                    backgroundSize: 'cover',
+                                    width: '100%',
+                                    height: '100%'
                                 }}
                             />
                             
                             {/* টেক্সট এবং বাটন কন্টেন্ট */}
-                            <div className="relative h-full flex flex-col justify-center items-center text-center text-white p-4">
-                                {/* <<< পরিবর্তন: অ্যানিমেশন রি-ট্রিগার করার জন্য key যোগ করা হয়েছে >>> */}
+                            <div className="relative h-full flex flex-col justify-center items-center text-center text-white px-4 py-6">
+                                {/* <<< পরিবর্তন: অ্যানিমেশন রি-ট্রিগার করার জন্য key যোগ করা হয়েছে >>> */}
                                 <motion.div 
                                     key={index}
-                                    className="max-w-3xl"
+                                    className="max-w-4xl w-full"
                                     initial="hidden"
-                                    animate="visible" // whileInView এর পরিবর্তে animate ব্যবহার করা হয়েছে
+                                    animate="visible"
                                     variants={{
-                                        visible: { transition: { staggerChildren: 0.2 } }
+                                        visible: { transition: { staggerChildren: 0.15 } }
                                     }}
                                 >
                                     <motion.h1 
-                                        className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight"
+                                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 leading-tight"
                                         variants={textVariants}
                                     >
                                         {slide.title}
                                     </motion.h1>
-
                                     <motion.p 
-                                        className="text-lg md:text-xl text-gray-200 mb-8"
+                                        className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-4 md:mb-6 px-2"
                                         variants={textVariants}
                                     >
                                         {slide.subtitle}
@@ -110,7 +164,7 @@ const Banner = () => {
                                     <motion.div variants={textVariants}>
                                         <Link 
                                             to="/courses"
-                                            className="btn btn-primary btn-lg rounded-full px-8 transform transition-transform duration-300 hover:scale-105"
+                                            className="btn btn-primary btn-sm md:btn-md lg:btn-lg rounded-full zpx-4 md:px-6 lg:px-8 text-sm md:text-base transform transition-transform duration-300 hover:scale-105"
                                         >
                                             Explore Courses
                                         </Link>

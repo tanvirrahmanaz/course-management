@@ -39,6 +39,10 @@ const router = createBrowserRouter([
         element: <AllCourses />, // সকল কোর্স পেজটি আমরা পাবলিক রাখছি
       },
       {
+        path: "courses/category/:category",
+        element: <AllCourses />,
+      },
+      {
         path: "/course/:id",
         element: <CourseDetails />, // কোর্স ডিটেইলস দেখতে লগইন লাগবে
       },
