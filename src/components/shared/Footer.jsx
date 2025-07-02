@@ -7,7 +7,7 @@ import { MdOutlineSupportAgent } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className=" bg-gray-900 text-gray-300">
+    <footer className="bg-gray-900 text-gray-300">
       {/* Gradient Top Border */}
       <div className="h-1 bg-gradient-to-r from-purple-500 to-blue-600"></div>
       
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
 
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 py-12">
           {/* Column 1: Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center">
@@ -72,31 +72,29 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="grid grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">Explore</h3>
-              <ul className="space-y-3">
-                <li><Link to="/" className="text-gray-400 hover:text-purple-400 transition-colors">Home</Link></li>
-                <li><Link to="/courses" className="text-gray-400 hover:text-purple-400 transition-colors">All Courses</Link></li>
-                <li><Link to="/instructors" className="text-gray-400 hover:text-purple-400 transition-colors">Instructors</Link></li>
-                <li><Link to="/blog" className="text-gray-400 hover:text-purple-400 transition-colors">Blog</Link></li>
-                <li><Link to="/events" className="text-gray-400 hover:text-purple-400 transition-colors">Events</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">Support</h3>
-              <ul className="space-y-3">
-                <li><Link to="/about" className="text-gray-400 hover:text-purple-400 transition-colors">About Us</Link></li>
-                <li><Link to="/contact" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</Link></li>
-                <li><Link to="/faq" className="text-gray-400 hover:text-purple-400 transition-colors">FAQ</Link></li>
-                <li><Link to="/privacy-policy" className="text-gray-400 hover:text-purple-400 transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/terms" className="text-gray-400 hover:text-purple-400 transition-colors">Terms</Link></li>
-              </ul>
-            </div>
+          {/* Column 2: Explore Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">Explore</h3>
+            <ul className="space-y-3">
+              <li><Link to="/" className="text-gray-400 hover:text-purple-400 transition-colors">Home</Link></li>
+              <li><Link to="/instructors" className="text-gray-400 hover:text-purple-400 transition-colors">Instructors</Link></li>
+              <li><Link to="/blog" className="text-gray-400 hover:text-purple-400 transition-colors">Blog</Link></li>
+              <li><Link to="/events" className="text-gray-400 hover:text-purple-400 transition-colors">Events</Link></li>
+            </ul>
           </div>
 
-          {/* Column 3: Contact Info */}
+          {/* Column 3: Courses Links */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">Courses</h3>
+            <ul className="space-y-3">
+              <li><Link to="/courses" className="text-gray-400 hover:text-purple-400 transition-colors">All Courses</Link></li>
+              <li><Link to="/add-course" className="text-gray-400 hover:text-purple-400 transition-colors">Add Course</Link></li>
+              <li><Link to="/manage-courses" className="text-gray-400 hover:text-purple-400 transition-colors">Manage Courses</Link></li>
+              <li><Link to="/my-enrolled-courses" className="text-gray-400 hover:text-purple-400 transition-colors">My Enrolled Courses</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact Info */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-700 pb-2">Contact Us</h3>
             <ul className="space-y-4">
@@ -136,12 +134,12 @@ const Footer = () => {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} CourseFlow. All rights reserved.
+              &copy; {new Date().getFullYear()} Shiksha Alo. All rights reserved.
             </p>
             <div className="flex space-x-6">
+              <Link to="/privacy-policy" className="text-gray-500 hover:text-purple-400 text-sm transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="text-gray-500 hover:text-purple-400 text-sm transition-colors">Terms</Link>
               <Link to="/sitemap" className="text-gray-500 hover:text-purple-400 text-sm transition-colors">Sitemap</Link>
-              <Link to="/accessibility" className="text-gray-500 hover:text-purple-400 text-sm transition-colors">Accessibility</Link>
-              <Link to="/careers" className="text-gray-500 hover:text-purple-400 text-sm transition-colors">Careers</Link>
             </div>
           </div>
         </div>
