@@ -253,7 +253,7 @@ const AddCourse = () => {
                     </div>
 
 
-                    {/* Section: Metadata */}
+                    {/* Section: Metadata   */}
                     <div className="p-6 bg-gray-900/50 rounded-lg border border-gray-700">
                          <h3 className="text-xl font-semibold mb-4 border-b border-gray-600 pb-2">Metadata & Media</h3>
                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
