@@ -7,6 +7,8 @@ import axiosSecure from '../../api/axiosSecure';
 import { FaSpinner } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
+
+//add courses section
 const AddCourse = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useAuth();
