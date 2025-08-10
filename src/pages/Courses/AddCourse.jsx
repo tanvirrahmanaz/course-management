@@ -300,7 +300,7 @@ const AddCourse = () => {
                                     Processing...
                                 </span>
                             ) : (
-                                'Add Course to Platform'
+                                'Add Course to Platform now'
                             )}
                         </button>
                     </div>
