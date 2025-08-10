@@ -76,7 +76,9 @@ const AddCourse = () => {
             reviews: [],
             completion_certificate: data.completion_certificate || false,
         };
-        
+
+
+        //data fetch section
         try {
             const response = await axiosSecure.post('/courses', courseData);
             
